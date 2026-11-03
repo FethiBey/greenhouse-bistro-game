@@ -33,6 +33,7 @@ jobs:
           rm -rf www/*
           cp ../index.html www/
           cp ../logo.png www/icon.png
+          cp ../greenhouse_bg.jpg www/
           sed -i 's|</widget>|    <icon src="www/icon.png" />\n</widget>|' config.xml
           cordova platform add android --no-telemetry
           cordova build android --debug --no-telemetry
