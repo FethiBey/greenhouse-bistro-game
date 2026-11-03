@@ -28,10 +28,12 @@ jobs:
 
       - name: Create Mobile Project and Build
         run: |
-          cordova create myapp com.coffeetrack.game CoffeeTrack
+          cordova create myapp com.greenhouse.bistro "Greenhouse Bistro"
           cd myapp
           rm -rf www/*
           cp ../index.html www/
+          cp ../logo.png www/icon.png
+          sed -i 's|</widget>|    <icon src="www/icon.png" />\n</widget>|' config.xml
           cordova platform add android --no-telemetry
           cordova build android --debug --no-telemetry
 
