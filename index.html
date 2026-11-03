@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Coffee Track Tycoon</title>
+  <title>Greenhouse Bistro Tycoon</title>
   <style>
     * {
       box-sizing: border-box;
@@ -14,7 +14,7 @@
     }
 
     body {
-      background: #0f0c08;
+      background: #08140b;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -28,8 +28,8 @@
       height: 98vh;
       max-height: 840px;
       position: relative;
-      background: #4a2810;
-      border: 3px solid #2b170c;
+      background: #142817;
+      border: 3px solid #0d1e10;
       border-radius: 18px;
       overflow: hidden;
       display: flex;
@@ -39,7 +39,7 @@
 
     /* TOP STATUS HEADER */
     header {
-      background: rgba(30, 15, 5, 0.9);
+      background: rgba(14, 33, 17, 0.95);
       backdrop-filter: blur(4px);
       padding: 8px 12px;
       display: flex;
@@ -48,12 +48,12 @@
       font-size: 13px;
       font-weight: bold;
       z-index: 30;
-      border-bottom: 2px solid #8d5329;
+      border-bottom: 2px solid #3c703b;
     }
-    .badge-gold { color: #ffbe0b; }
+    .badge-gold { color: #85e874; }
     .hearts { font-size: 14px; letter-spacing: 2px; }
 
-    /* --- GÖRSELDEKİ RESTORAN ARKA PLANI (PANORAMIC WOODEN DINER) --- */
+    /* GREENHOUSE BISTRO AMBIENCE */
     #restaurant-ambience {
       position: relative;
       flex: 1.25;
@@ -61,86 +61,81 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      /* Dikey ahşap duvar dokusu */
       background: repeating-linear-gradient(
         90deg,
-        #b07240,
-        #b07240 38px,
-        #96582a 39px,
-        #c68752 40px
+        #1e3822,
+        #1e3822 38px,
+        #152918 39px,
+        #284b2e 40px
       );
       box-shadow: inset 0 10px 20px rgba(0,0,0,0.4);
     }
 
-    /* Üst Ahşap Saçak / Kiriş */
     .roof-beam {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 18px;
-      background: linear-gradient(180deg, #6c3b17 0%, #8f5326 100%);
-      border-bottom: 3px solid #4a2408;
+      background: linear-gradient(180deg, #112614 0%, #224a27 100%);
+      border-bottom: 3px solid #0d1e10;
       box-shadow: 0 3px 6px rgba(0,0,0,0.35);
       z-index: 5;
     }
 
-    /* Panoramik Yatay Pencere & Dış Manzara */
+    /* Botanical Glass Windows */
     .panoramic-window-frame {
       position: absolute;
       top: 25px;
       left: 10px;
       right: 10px;
       height: 110px;
-      background: linear-gradient(180deg, #38b6ff 0%, #5ce1e6 55%, #ffeaa7 95%);
-      border: 8px solid #d48b4e;
+      background: linear-gradient(180deg, #74c69d 0%, #b7e4c7 60%, #d8f3dc 95%);
+      border: 8px solid #2d5a34;
       border-radius: 8px;
       box-shadow: inset 0 0 15px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.4);
       overflow: hidden;
     }
 
-    /* Cam arkasındaki açık deniz / sahil silüeti */
-    .ocean-horizon {
+    .greenhouse-trees {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 50px;
-      background: linear-gradient(180deg, #0096c7 0%, #0077b6 70%, #023e8a 100%);
+      height: 55px;
+      background: linear-gradient(180deg, #40916c 0%, #2d6a4f 70%, #1b4332 100%);
     }
-    .island-silhouette {
+    .hanging-ivy {
       position: absolute;
-      bottom: 45px;
-      left: 20px;
-      width: 90px;
-      height: 22px;
-      background: #2a9d8f;
-      border-radius: 50% 50% 0 0;
-      opacity: 0.8;
+      top: -10px;
+      left: 25px;
+      width: 70px;
+      height: 38px;
+      background: #52b788;
+      border-radius: 0 0 50% 50%;
+      opacity: 0.9;
     }
-    .island-silhouette-2 {
+    .hanging-ivy-2 {
       position: absolute;
-      bottom: 44px;
-      right: 40px;
-      width: 140px;
-      height: 28px;
-      background: #264653;
-      border-radius: 50% 50% 0 0;
-      opacity: 0.7;
+      top: -8px;
+      right: 30px;
+      width: 100px;
+      height: 42px;
+      background: #2d6a4f;
+      border-radius: 0 0 50% 50%;
+      opacity: 0.85;
     }
-
-    /* Yatay pencere bölme çıtaları */
     .window-divider {
       position: absolute;
       top: 0;
       bottom: 0;
       left: 50%;
       width: 6px;
-      background: #b07240;
+      background: #2d5a34;
       box-shadow: 0 0 4px rgba(0,0,0,0.3);
     }
 
-    /* Ahşap Zemin / Güverte (Deck Flooring) */
+    /* Rustic Wooden Flooring */
     .wooden-deck {
       position: absolute;
       bottom: 0;
@@ -149,15 +144,15 @@
       height: 90px;
       background: repeating-linear-gradient(
         90deg,
-        #7f4f24,
-        #7f4f24 28px,
-        #58310c 30px
+        #344e41,
+        #344e41 28px,
+        #24372e 30px
       );
-      border-top: 5px solid #936639;
+      border-top: 5px solid #3f6151;
       box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
     }
 
-    /* MASALAR & MÜŞTERİLER (Pencere ve Güverte Önünde) */
+    /* TABLES & CUSTOMERS */
     .customer-tables-layer {
       position: relative;
       z-index: 10;
@@ -171,7 +166,7 @@
       background: rgba(255, 255, 255, 0.96);
       color: #222;
       border-radius: 12px;
-      border: 3px solid #d48b4e;
+      border: 3px solid #52b788;
       min-height: 165px;
       padding: 6px 4px;
       display: flex;
@@ -181,8 +176,8 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.45);
     }
     .table-stand.locked {
-      background: rgba(45, 25, 15, 0.85);
-      border: 2px dashed #936639;
+      background: rgba(20, 40, 24, 0.85);
+      border: 2px dashed #3e744a;
       color: #ddd;
       justify-content: center;
     }
@@ -190,19 +185,20 @@
       font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
-      color: #7f4f24;
+      color: #1b4332;
     }
     .guest-avatar { font-size: 34px; line-height: 1; margin: 2px 0; }
     .guest-name { font-size: 11px; font-weight: bold; color: #222; }
     .order-ticket {
-      background: #fff3b0;
-      border: 1px solid #e09f3e;
+      background: #e8f5e9;
+      border: 1px solid #66bb6a;
       padding: 3px 5px;
       border-radius: 8px;
       font-size: 10px;
       font-weight: bold;
       width: 100%;
       text-align: center;
+      color: #1b4332;
     }
     .patience-frame {
       width: 100%;
@@ -215,11 +211,11 @@
     .patience-fill {
       height: 100%;
       width: 100%;
-      background: #2a9d8f;
+      background: #2d6a4f;
       transition: width 0.2s linear;
     }
     .serve-action-btn {
-      background: #2a9d8f;
+      background: #2d6a4f;
       color: #fff;
       border: none;
       width: 100%;
@@ -230,27 +226,27 @@
       cursor: pointer;
     }
 
-    /* TEZGAH (Restaurant Counter) */
+    /* COUNTER */
     #counter-bar {
       position: relative;
       z-index: 15;
-      background: #e9ecef;
-      border-top: 6px solid #6c3b17;
+      background: #e8f0e9;
+      border-top: 6px solid #234327;
       padding: 8px 10px;
       box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
     }
     .counter-wood-panel {
       font-size: 10px;
       font-weight: 800;
-      color: #4a2810;
+      color: #1b4332;
       text-transform: uppercase;
       margin-bottom: 4px;
       display: flex;
       justify-content: space-between;
     }
     .tray-shelf {
-      background: rgba(0,0,0,0.08);
-      border: 1px dashed #6c3b17;
+      background: rgba(0,0,0,0.06);
+      border: 1px dashed #2d6a4f;
       border-radius: 8px;
       padding: 6px;
       min-height: 42px;
@@ -270,19 +266,20 @@
       align-items: center;
       gap: 5px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+      border: 1px solid #74c69d;
     }
 
     /* KITCHEN PREPARATION */
     #kitchen-deck {
-      background: #2b170c;
+      background: #142817;
       padding: 8px 10px 12px;
       z-index: 15;
-      border-top: 3px solid #1a0c06;
+      border-top: 3px solid #0d1e10;
     }
     .kitchen-title {
       font-size: 10px;
       font-weight: 800;
-      color: #ffbe0b;
+      color: #74c69d;
       text-transform: uppercase;
       margin-bottom: 6px;
     }
@@ -293,7 +290,7 @@
     }
     .recipe-btn {
       background: rgba(255,255,255,0.08);
-      border: 1px solid #7f4f24;
+      border: 1px solid #3c703b;
       color: #fff;
       border-radius: 8px;
       padding: 6px 3px;
@@ -316,7 +313,7 @@
       left: 0;
       height: 3px;
       width: 0%;
-      background: #ffbe0b;
+      background: #74c69d;
     }
 
     /* TOAST */
@@ -326,7 +323,7 @@
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0,0,0,0.85);
-      color: #ffbe0b;
+      color: #85e874;
       font-size: 11px;
       font-weight: bold;
       padding: 5px 14px;
@@ -342,7 +339,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(20, 10, 6, 0.95);
+      background: rgba(8, 20, 11, 0.95);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -352,8 +349,8 @@
       text-align: center;
     }
     .btn-action-primary {
-      background: #ffbe0b;
-      color: #111;
+      background: #40916c;
+      color: #fff;
       font-size: 16px;
       font-weight: 800;
       padding: 12px 28px;
@@ -361,16 +358,16 @@
       border: none;
       cursor: pointer;
       margin-top: 15px;
-      box-shadow: 0 4px 15px rgba(255, 190, 11, 0.4);
+      box-shadow: 0 4px 15px rgba(64, 145, 108, 0.4);
     }
     .btn-action-secondary {
-      background: #2a9d8f;
+      background: #1b4332;
+      border: 1px solid #52b788;
       color: #fff;
       font-size: 14px;
       font-weight: 700;
       padding: 10px 20px;
       border-radius: 20px;
-      border: none;
       cursor: pointer;
       margin: 6px;
     }
@@ -385,7 +382,7 @@
     }
     .shop-row {
       background: rgba(255,255,255,0.07);
-      border: 1px solid #7f4f24;
+      border: 1px solid #3c703b;
       border-radius: 8px;
       padding: 10px;
       display: flex;
@@ -395,9 +392,9 @@
       text-align: left;
     }
     .shop-buy {
-      background: #ffbe0b;
+      background: #52b788;
       border: none;
-      color: #111;
+      color: #0b2214;
       font-weight: bold;
       padding: 6px 12px;
       border-radius: 6px;
@@ -415,84 +412,80 @@
 <div id="app">
   <!-- STATUS HEADER -->
   <header>
-    <div>Day: <span id="day-val" class="badge-gold">1</span></div>
-    <div>Time: <span id="clock-val" class="badge-gold">30s</span></div>
-    <div>Cash: <span id="cash-val" class="badge-gold">$20</span></div>
+    <div>Shift: <span id="day-val" class="badge-gold">1</span></div>
+    <div>Timer: <span id="clock-val" class="badge-gold">30s</span></div>
+    <div>Revenue: <span id="cash-val" class="badge-gold">$20</span></div>
     <div id="lives-val" class="hearts">❤️❤️❤️</div>
   </header>
 
   <div id="toast"></div>
 
-  <!-- RESTAURANT AMBIENCE (Panoramik Pencere, Ahşap Duvar, Güverte Zemin) -->
+  <!-- GREENHOUSE BISTRO AMBIENCE -->
   <div id="restaurant-ambience">
     <div class="roof-beam"></div>
 
-    <!-- Dış Manzaralı Panoramik Cam -->
     <div class="panoramic-window-frame">
-      <div class="island-silhouette"></div>
-      <div class="island-silhouette-2"></div>
-      <div class="ocean-horizon"></div>
+      <div class="hanging-ivy"></div>
+      <div class="hanging-ivy-2"></div>
+      <div class="greenhouse-trees"></div>
       <div class="window-divider"></div>
     </div>
 
-    <!-- Güverte / Ahşap Zemin -->
     <div class="wooden-deck"></div>
-
-    <!-- Masalar -->
     <div class="customer-tables-layer" id="tables-container"></div>
   </div>
 
-  <!-- RESTAURANT COUNTER (Tezgah) -->
+  <!-- BISTRO COUNTER -->
   <div id="counter-bar">
     <div class="counter-wood-panel">
-      <span>🍽️ Restaurant Counter</span>
-      <span>Ready to Serve</span>
+      <span>🌿 Greenhouse Bistro Counter</span>
+      <span>Farm to Table</span>
     </div>
     <div class="tray-shelf" id="tray-shelf">
-      <span style="font-size:10px; color:#6c3b17;">No items on counter. Cook below!</span>
+      <span style="font-size:10px; color:#2d6a4f;">No organic dishes ready. Prepare below!</span>
     </div>
   </div>
 
   <!-- KITCHEN STATIONS -->
   <div id="kitchen-deck">
-    <div class="kitchen-title">👨‍🍳 Kitchen Stations</div>
+    <div class="kitchen-title">👨‍🌾 Botanical Kitchen Stations</div>
     <div class="prep-grid" id="prep-grid"></div>
   </div>
 
   <!-- 1. START SCREEN -->
   <div id="start-screen" class="overlay-window">
-    <div style="font-size:55px; margin-bottom:8px;">☕🍩</div>
-    <h1 style="color:#ffbe0b; font-size:24px;">COFFEE TRACK TYCOON</h1>
-    <p style="font-size:12px; color:#ddd; margin:6px 0 14px;">Cozy Seaside Restaurant Simulator</p>
+    <div style="font-size:55px; margin-bottom:8px;">🌿🥗</div>
+    <h1 style="color:#74c69d; font-size:24px;">GREENHOUSE BISTRO</h1>
+    <p style="font-size:12px; color:#ddd; margin:6px 0 14px;">Organic Farm-To-Table Cafe Simulator</p>
     <p style="font-size:11px; color:#bbb; max-width:280px; line-height:1.4;">
-      Serve seated guests from the counter.<br>Survive the 30-second shift!<br>Keep all 3 hearts intact!
+      Harvest and serve botanical dishes to guests.<br>Survive the 30-second shift!<br>Keep all 3 customer hearts intact!
     </p>
-    <button class="btn-action-primary" onclick="startShift()">▶ PLAY SHIFT 1</button>
+    <button class="btn-action-primary" onclick="startShift()">▶ START SHIFT 1</button>
   </div>
 
   <!-- 2. SUMMARY SCREEN -->
   <div id="summary-screen" class="overlay-window" style="display:none;">
-    <h2 id="summary-title" style="color:#ffbe0b; font-size:22px;">SHIFT COMPLETE!</h2>
-    <p id="summary-desc" style="font-size:12px; color:#ddd; margin:8px 0 15px;">Today's restaurant performance:</p>
+    <h2 id="summary-title" style="color:#74c69d; font-size:22px;">SHIFT COMPLETE!</h2>
+    <p id="summary-desc" style="font-size:12px; color:#ddd; margin:8px 0 15px;">Bistro shift performance summary:</p>
     
     <div style="background:rgba(255,255,255,0.08); border-radius:10px; padding:12px 20px; width:80%; margin-bottom:15px; font-size:13px; line-height:1.8;">
-      <div>Earned Cash: <b id="sum-earned" style="color:#ffbe0b;">+$0</b></div>
-      <div>Total Cash: <b id="sum-total" style="color:#ffbe0b;">$20</b></div>
-      <div>Guests Served: <b id="sum-customers" style="color:#2a9d8f;">0</b></div>
+      <div>Earned Revenue: <b id="sum-earned" style="color:#85e874;">+$0</b></div>
+      <div>Total Treasury: <b id="sum-total" style="color:#85e874;">$20</b></div>
+      <div>Guests Served: <b id="sum-customers" style="color:#52b788;">0</b></div>
     </div>
 
     <div>
-      <button class="btn-action-secondary" onclick="openShop()">🏪 SHOP</button>
+      <button class="btn-action-secondary" onclick="openShop()">🏪 GREENHOUSE SHOP</button>
       <button class="btn-action-primary" style="margin-top:0;" id="next-shift-btn" onclick="nextShift()">NEXT SHIFT ❯</button>
     </div>
   </div>
 
   <!-- 3. SHOP MODAL -->
   <div id="shop-screen" class="overlay-window" style="display:none;">
-    <h2 style="color:#ffbe0b; font-size:20px;">RESTAURANT UPGRADES</h2>
-    <p style="font-size:11px; color:#ddd;">Expand tables and recipes to increase profit!</p>
+    <h2 style="color:#74c69d; font-size:20px;">BISTRO UPGRADES</h2>
+    <p style="font-size:11px; color:#ddd;">Unlock bistro garden tables & botanical recipes!</p>
     <div class="shop-scroll-area" id="shop-list"></div>
-    <button class="btn-action-secondary" onclick="closeShop()">⬅ BACK TO MENU</button>
+    <button class="btn-action-secondary" onclick="closeShop()">⬅ BACK TO BISTRO</button>
   </div>
 </div>
 
@@ -522,7 +515,7 @@
     fanfare: () => { playTone(523, 'sine', 0.1); setTimeout(() => playTone(659, 'sine', 0.15), 120); }
   };
 
-  /* --- Game Data --- */
+  /* --- Game Data: Greenhouse Bistro Theme --- */
   let currentDay = 1;
   let cash = 20;
   let shiftEarned = 0;
@@ -533,21 +526,21 @@
   let readyTray = [];
 
   const menu = [
-    { id: 'tea', name: 'Black Tea', icon: '🍵', time: 1000, earn: 6, cost: 0, unlocked: true },
-    { id: 'coffee', name: 'Filter Coffee', icon: '☕', time: 1500, earn: 10, cost: 0, unlocked: true },
-    { id: 'latte', name: 'Macchiato', icon: '🥛', time: 2200, earn: 18, cost: 35, unlocked: false },
-    { id: 'croissant', name: 'Croissant', icon: '🥐', time: 1800, earn: 16, cost: 45, unlocked: false },
-    { id: 'donut', name: 'Donut', icon: '🍩', time: 2000, earn: 22, cost: 65, unlocked: false },
-    { id: 'cheesecake', name: 'Cheesecake', icon: '🍰', time: 2600, earn: 35, cost: 95, unlocked: false }
+    { id: 'mint_tea', name: 'Garden Mint Tea', icon: '🍵', time: 1000, earn: 6, cost: 0, unlocked: true },
+    { id: 'green_salad', name: 'Fresh Herb Salad', icon: '🥗', time: 1500, earn: 10, cost: 0, unlocked: true },
+    { id: 'cooler', name: 'Cucumber Cooler', icon: '🥒', time: 2000, earn: 16, cost: 35, unlocked: false },
+    { id: 'pesto_pasta', name: 'Basil Pesto Pasta', icon: '🍝', time: 2400, earn: 22, cost: 50, unlocked: false },
+    { id: 'avocado_toast', name: 'Avocado Tartine', icon: '🥑', time: 2200, earn: 28, cost: 75, unlocked: false },
+    { id: 'botanical_cake', name: 'Rosemary Fig Tart', icon: '🥧', time: 2800, earn: 38, cost: 100, unlocked: false }
   ];
 
   const avatars = [
-    { name: 'Alex', icon: '🧑‍🎓' },
-    { name: 'Sarah', icon: '👩‍💼' },
-    { name: 'Leo', icon: '👨‍🎨' },
-    { name: 'Elena', icon: '🧳' },
-    { name: 'Brown', icon: '🎩' },
-    { name: 'Mike', icon: '🏃' }
+    { name: 'Emma', icon: '👩‍🌾' },
+    { name: 'Oliver', icon: '🧑‍🍳' },
+    { name: 'Sophia', icon: '👒' },
+    { name: 'Liam', icon: '🌿' },
+    { name: 'Ava', icon: '🌸' },
+    { name: 'Lucas', icon: '🎒' }
   ];
 
   const tables = [
@@ -630,16 +623,16 @@
 
     if (success) {
       sfx.fanfare();
-      title.innerText = `DAY ${currentDay} COMPLETE!`;
-      title.style.color = '#ffbe0b';
-      desc.innerText = "Shift closed successfully. Upgrade your restaurant before next day!";
-      nxtBtn.innerText = `START DAY ${currentDay + 1} ❯`;
+      title.innerText = `SHIFT ${currentDay} COMPLETED!`;
+      title.style.color = '#74c69d';
+      desc.innerText = "Great harvest! Upgrade your greenhouse bistro before the next shift.";
+      nxtBtn.innerText = `START SHIFT ${currentDay + 1} ❯`;
       nxtBtn.onclick = () => { currentDay++; startShift(); };
     } else {
       sfx.hurt();
-      title.innerText = `RESTAURANT CLOSED!`;
+      title.innerText = `BISTRO OVERRUN!`;
       title.style.color = '#e76f51';
-      desc.innerText = "You lost all 3 hearts! Try this shift again or buy upgrades.";
+      desc.innerText = "Guests waited too long. Upgrade recipes or try shift again!";
       nxtBtn.innerText = "RETRY SHIFT ↺";
       nxtBtn.onclick = () => startShift();
     }
@@ -677,7 +670,7 @@
         table.customer = null;
         sfx.hurt();
         lives--;
-        toast("💔 Guest left angry! -1 Life");
+        toast("💔 Guest left disappointed! -1 Life");
         updateHUD();
         renderTables();
         if (lives <= 0) endShift(false);
@@ -694,10 +687,10 @@
       const stand = document.createElement('div');
       if (!t.unlocked) {
         stand.className = 'table-stand locked';
-        stand.innerHTML = `<span style="font-size:24px;">🔒</span><small style="margin-top:4px;">Table ${t.id}<br>(Locked)</small>`;
+        stand.innerHTML = `<span style="font-size:24px;">🔒</span><small style="margin-top:4px;">Bistro Table ${t.id}<br>(Locked)</small>`;
       } else if (!t.customer) {
         stand.className = 'table-stand';
-        stand.innerHTML = `<span class="table-label">Table ${t.id}</span><span style="font-size:26px; color:#888; margin:14px 0;">🪑</span><small style="color:#666;">Ready</small>`;
+        stand.innerHTML = `<span class="table-label">Table ${t.id}</span><span style="font-size:26px; color:#52b788; margin:14px 0;">🌿</span><small style="color:#666;">Ready</small>`;
       } else {
         stand.className = 'table-stand';
         stand.innerHTML = `
@@ -722,7 +715,7 @@
 
     cooking = true;
     sfx.click();
-    toast(`Preparing ${meal.name}...`);
+    toast(`Harvesting & preparing ${meal.name}...`);
     const p = document.getElementById(`cbar-${meal.id}`);
     p.style.transition = `width ${meal.time}ms linear`;
     p.style.width = '100%';
@@ -740,7 +733,7 @@
   function renderTray() {
     const shelf = document.getElementById('tray-shelf');
     if (readyTray.length === 0) {
-      shelf.innerHTML = `<span style="font-size:10px; color:#6c3b17;">No items on counter. Cook below!</span>`;
+      shelf.innerHTML = `<span style="font-size:10px; color:#2d6a4f;">No organic dishes ready. Prepare below!</span>`;
       return;
     }
     shelf.innerHTML = '';
@@ -772,7 +765,7 @@
       cash += earn;
       shiftEarned += earn;
       shiftServed++;
-      toast(`+ $${earn} Earned!`);
+      toast(`+$${earn} Harvest Revenue!`);
       table.customer = null;
       updateHUD();
       renderTray();
@@ -792,7 +785,7 @@
       btn.innerHTML = `
         <span style="font-size:18px;">${m.icon}</span>
         <span>${m.name}</span>
-        <small style="color:#ffbe0b;">${m.unlocked ? '+$' + m.earn : '🔒'}</small>
+        <small style="color:#74c69d;">${m.unlocked ? '+$' + m.earn : '🔒'}</small>
         <div id="cbar-${m.id}" class="cook-bar"></div>
       `;
       if (m.unlocked) btn.onclick = () => cookItem(m.id);
@@ -842,7 +835,7 @@
         const item = document.createElement('div');
         item.className = 'shop-row';
         item.innerHTML = `
-          <div><b>🪑 Table ${t.id}</b><br><small>Seat more guests</small></div>
+          <div><b>🌿 Bistro Table ${t.id}</b><br><small>Seat more garden visitors</small></div>
           <button class="shop-buy" ${cash < t.cost ? 'disabled' : ''} onclick="buyUpgrade('table', ${t.id})">Unlock ($${t.cost})</button>
         `;
         box.appendChild(item);
@@ -854,7 +847,7 @@
         const item = document.createElement('div');
         item.className = 'shop-row';
         item.innerHTML = `
-          <div><b>${m.icon} ${m.name}</b><br><small>Earn +$${m.earn} per order</small></div>
+          <div><b>${m.icon} ${m.name}</b><br><small>Earn +$${m.earn} per serving</small></div>
           <button class="shop-buy" ${cash < m.cost ? 'disabled' : ''} onclick="buyUpgrade('meal', '${m.id}')">Unlock ($${m.cost})</button>
         `;
         box.appendChild(item);
@@ -862,7 +855,7 @@
     });
 
     if (box.children.length === 0) {
-      box.innerHTML = `<p style="color:#2a9d8f; font-size:12px; margin:20px;">🎉 All tables and recipes unlocked!</p>`;
+      box.innerHTML = `<p style="color:#52b788; font-size:12px; margin:20px;">🎉 All greenhouse tables and recipes unlocked!</p>`;
     }
   }
 
