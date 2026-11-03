@@ -28,7 +28,7 @@ jobs:
 
       - name: Create Mobile Project and Build
         run: |
-       cordova create myapp com.greenhousebistro.game GreenhouseBistro
+       cordova create myapp com.greenhousebistro.game greenhousebistro
           cd myapp
           rm -rf www/*
           cp ../index.html www/
