@@ -28,7 +28,7 @@ jobs:
 
       - name: Create Mobile Project and Build
         run: |
-          cordova create myapp com.coffeetrack.game CoffeeTrack
+       cordova create myapp com.greenhousebistro.game GreenhouseBistro
           cd myapp
           rm -rf www/*
           cp ../index.html www/
@@ -38,5 +38,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: CoffeeTrack-Game-APK
+          name: Greenhouse-Bistro-Game-APK
           path: myapp/platforms/android/app/build/outputs/apk/debug/app-debug.apk
